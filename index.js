@@ -1,4 +1,4 @@
-// var name = "ViktOR";
+var name = "ViktOR";
 // console.log(name.toLowerCase());
 // var nameUpdated = name.toLowerCase();
 
@@ -194,18 +194,18 @@
 
 
 
-var house = {
-	m2: "50",
-	price_m2: "1000",
-	balcony: "5",
+// var house = {
+// 	m2: "50",
+// 	price_m2: "1000",
+// 	balcony: "5",
 
-	getFullPrice: function()
-	{
-		return (parseInt(this.m2)+parseInt(this.balcony))*this.price_m2;
-	}
-}
+// 	getFullPrice: function()
+// 	{
+// 		return (parseInt(this.m2)+parseInt(this.balcony))*this.price_m2;
+// 	}
+// }
 
-console.log(house.getFullPrice());
+// console.log(house.getFullPrice());
 
 
 
@@ -221,3 +221,38 @@ console.log(house.getFullPrice());
 	}
 povekje objekti pod 60m2 i cena pod 1000evra so klaca(konstruktor)
 }*/
+
+class Property
+{
+	constructor(type,m2,price_m2,balcony)
+	{		
+		this.type = type;
+		this.m2 = m2;
+		this.price_m2 = price_m2;
+		this.balcony = balcony;
+	}
+	pecatenje()
+	{
+	console.log("Type: " + this.type + "\n" + "Metre sqares: " + this.m2 + "\n" + "Price per m2 : " + this.price_m2 + "\n" + "Balcony: " + this.balcony);
+	}
+}
+
+var building_1 = new Property("House" , "50" , "850" , "15");
+
+var building_2 = new Property("Villa" , "350" , "1600" , "30");
+
+var building_3 = new Property("Cottage" , "40" , "900" , "none");
+
+var building_4 = new Property("Building" , "600" , "700" , "10");
+
+var niza = [building_1,building_2,building_3,building_4];
+
+for(let i = 0; i < niza.length;i++)
+{
+	if(niza[i].m2 < 60 && niza[i].price_m2 < 1000)
+	{
+		niza[i].pecatenje();
+		console.log("\n");
+	}
+}
+
