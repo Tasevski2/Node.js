@@ -53,23 +53,63 @@ var fs = require("fs");
 
 //rabota so fs modul
 
-fs.readFile("myFile.txt","UTF-8", (err, data)=>
-{	
-	if(err)
-	 throw err;
-else
-{
-	console.log(data);
-}
+// fs.readFile("myFile.txt","UTF-8", (err, data)=>
+// {	
+// 	if(err)
+// 	 throw err;
+// else
+// {
+// 	console.log(data);
+// }
 
-})
+// })
 
-fs.writeFile("myFile2.txt", "Pisuvam vo sublime",(err)=>
-{
-	if(err)
+// fs.writeFile("myFile2.txt", "Pisuvam vo sublime",(err)=>
+// {
+// 	if(err)
+// 		throw err;
+// 	else
+// 		console.log("Uspesno zapisano");
+// })
+
+
+// fs.appendFile("myFile.txt" , "\n appended text" ,(err)=>{
+// 	if(err)
+// 		throw err;
+// 	else
+// 		console.log("text added!")
+// });
+
+
+fs.readFile("users.json","UTF-8" , (err,data)=>{
+	
+	var name = "Gorjan"
+	
+
+	if(err) 
 		throw err;
+	
+
 	else
-		console.log("Uspesno zapisano");
-})
+	{	
+		var exists = false;
+
+		var parseJSON = JSON.parse(data);
+		for(let i = 0;i<parseJSON.length; i++)
+		{
+			if(parseJSON[i].name == name)
+			{
+				console.log("Name: " + parseJSON[i].name + "\n" + "Lastname: " + parseJSON[i].lastname + "\n" + "Email: " + parseJSON[i].email + "\n" + "Password: " + parseJSON[i].password);
+				exists = true;
+				break;
+			}
+		
+		}
+
+		if(exists==false)
+			console.log("Ne postoi takov korisnik.");
+
+	}
+});
 
 
