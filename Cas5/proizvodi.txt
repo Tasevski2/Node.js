@@ -1,0 +1,8 @@
+banana 23
+ananas 123
+jabolko 546
+krusa 65
+cresa 23
+kajsija 63
+piperka 32
+domat 53
