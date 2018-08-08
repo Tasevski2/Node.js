@@ -1,0 +1,11 @@
+<h1> Korisnici </h1>
+
+<br>
+
+<% for(let i=0;i<users.length;i++)
+{	%>
+	<a href="/showUser?email=<%=users[i].email %>"> <%= users[i].email %> </a>
+	<br>
+<%	
+}
+%>
